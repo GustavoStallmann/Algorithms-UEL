@@ -1,0 +1,23 @@
+/*
+9) Escreva uma função que arredonda um valor dado. O número deve ser 
+arredondado para o inteiro mais próximo. Se o número for equidistante de 
+dois inteiros, deve ser arredondado para o valor de maior magnitude. Ou 
+seja, 1.5 é arredondado para 2, e -1.5 é arredondado para -2.
+*/
+
+#include <stdio.h>
+
+int round_value(float value) {
+    
+}
+
+int main( ) {
+    float value;
+    printf("Insira o valor que sera arredondado: \n");
+    scanf("%f", &value);
+
+    int rounded_value = round_value(value);
+    printf("O valor arredondado corresponde a: %d", round_value);
+
+    return 0;
+}

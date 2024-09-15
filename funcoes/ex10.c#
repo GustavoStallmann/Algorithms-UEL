@@ -1,0 +1,38 @@
+/*
+10) Um número a é dito permutação de um número b se os dígitos de a 
+formam uma permutação dos dígitos de b. 
+ 
+Exemplo:      5412434  é  uma  permutação  de  4321445,  mas  não  é  uma 
+permutação de 4312455. 
+ 
+Obs.: Considere que o dígito 0 (zero) não aparece nos números. 
+
+(a) Faça uma função contadígitos que dados um inteiro n e um inteiro d,            
+0 < d < 9, devolve quantas vezes o dígito d aparece em n. 
+ 
+(b) Usando a função do item anterior, faça um programa que lê dois inteiros 
+positivos a e b e responda se a é permutação de b.
+*/
+
+#include <stdio.h>
+
+int count_digits(int digit, int number) {
+    int count = 0;
+    while (number > 0) {
+        if (number % 10 == digit) count++;
+
+        number /= 10;
+    }
+
+    return count;
+}
+
+int main( ) {
+    int num[2];
+    for (int i = 0; i < 2; i++) {
+        printf("Insira o %do numero: \n");
+        scanf("%d", num[i]);
+    }   
+
+    return 0;
+}
