@@ -19,6 +19,8 @@ typedef struct {
 
 List* lst_init( ) {
     List *list = (List *) malloc(sizeof(List));
+    if (!list) alloc_error(); 
+
     list->first_node = NULL; 
     return list; 
 };
@@ -38,18 +40,66 @@ Node* lst_insert(key info, List *list) {
 void lst_print(List *list) {
     Node *p; 
 
-    for (p=list->first_node; p != NULL; p = p->next)
+    for (p = list->first_node; p != NULL; p = p->next)
         printf("[%d]", p->info);
+}
+
+int lst_node_ammount(List *list) {
+    Node *node; 
+    
+    int node_ammount = 0; 
+    for (node = list->first_node; node != NULL; node = node->next, node_ammount++);
+
+    return node_ammount; 
+}
+
+bool lst_free(List *list) {
+    Node *node, *previous_node;
+
+    for (node = list->first_node; node != NULL; node = node->next) {
+        if (!node->next) {
+            free(node); 
+            break;
+        }
+        
+        previous_node = node; 
+        if (previous_node) free(previous_node);
+    }
+
+    list->first_node = NULL; 
+    return true; 
+}
+
+Node* lst_search(List *list, key info) {
+    Node *node; 
+    for (node = list->first_node; node != NULL; node = node->next) 
+        if (node->info == info) 
+            return node; 
+
+    return NULL; 
+}
+
+//TERMINAR
+bool lst_remove_node(List *list, key info) {
+    Node *actual_node, *previous_node; 
+
+    while (actual_node != NULL && actual_node->info != info) {
+        previous_node = actual_node; 
+        actual_node = actual_node->next;
+    }
+
+    return true; 
 }
 
 int main( ) {
     List *list = lst_init( ); 
     lst_insert(10, list); 
     lst_insert(20, list);
+    lst_insert(30, list);
+    lst_remove_node(list, 30);
     lst_print(list);
 
-    for (int i, j; i<10 && j<10; i++, j++)
-        printf("%d | %d\n", i, j);
+    printf("\nQuantidade de elementos: %d\n", lst_node_ammount(list));
 
     return 0;
 }
