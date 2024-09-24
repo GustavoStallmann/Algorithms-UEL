@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/stallmarch/projects/fila_pilha",
-      "program": "/home/stallmarch/projects/fila_pilha/build/Debug/outDebug",
+      "cwd": "/home/stallmarch/projects/Algorithms-UEL/lista",
+      "program": "/home/stallmarch/projects/Algorithms-UEL/lista/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
